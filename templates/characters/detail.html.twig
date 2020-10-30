@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail{% endblock %}
+
+{% block myTitle %}Personnage: {{character.name}}{% endblock %}
+{% block body %}
+  <div class="row">
+    <div class="col-2">
+      <img src="{{asset("/images/characters/" ~ character.name ~ ".png")}}" alt="personnage detail"/>
+    </div>
+    <div class="col">
+      <h2>{{character.name}}</h2>
+      <div>
+        {% if character.isMale %}
+          Homme
+        {% else %}  
+          Femme
+        {% endif %}
+      </div>
+      <h3>Les caractéristiques:</h3>
+        <ul>
+          <li>Age: {{character.age}}</li>
+          <li>Force: {{character.attributes.strength}}</li>
+          <li>Agilité: {{character.attributes.agility}}</li>
+          <li>Sagesse: {{character.attributes.wisdow}}</li>
+        </ul>
+    </div>
+  </div>
+{% endblock %}
